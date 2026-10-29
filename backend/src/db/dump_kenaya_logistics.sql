@@ -1,7 +1,7 @@
 -- =====================================================================
 -- KENAYA LOGISTIC - EXPORT BASE DE DONNÉES CLOUD DE PRODUCTION
 -- Compatible MySQL 8.0, TiDB Cloud, Aiven, Clever Cloud, PlanetScale
--- Date d'export : 2026-10-29T15:12:44.218Z
+-- Date d'export : 2026-10-29T16:21:43.966Z
 -- =====================================================================
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -25,14 +25,15 @@ CREATE TABLE `audit_logs` (
   KEY `idx_audit_user` (`user_id`),
   KEY `idx_audit_created` (`created_at`),
   CONSTRAINT `audit_logs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Données de la table `audit_logs` (5 lignes)
+-- Données de la table `audit_logs` (6 lignes)
 INSERT INTO `audit_logs` (`id`, `user_id`, `user_name`, `user_role`, `action`, `module`, `entity_type`, `entity_id`, `details`, `ip_address`, `created_at`) VALUES (1, NULL, 'Système Migration', 'admin', 'INITIALIZE_RBAC_PERMISSIONS', 'users', NULL, NULL, '{"message":"Initialisation de la table permissions et des comptes secrétaires."}', NULL, '2026-10-29 14:21:55');
 INSERT INTO `audit_logs` (`id`, `user_id`, `user_name`, `user_role`, `action`, `module`, `entity_type`, `entity_id`, `details`, `ip_address`, `created_at`) VALUES (2, 5, 'Grace Ondaye (Secrétaire Principale)', 'secretary', 'USER_LOGIN', 'auth', NULL, NULL, '{"userAgent":"Unknown"}', '::1', '2026-10-29 14:26:30');
 INSERT INTO `audit_logs` (`id`, `user_id`, `user_name`, `user_role`, `action`, `module`, `entity_type`, `entity_id`, `details`, `ip_address`, `created_at`) VALUES (3, 1, 'Dieudonné Massamba (DG)', 'admin', 'USER_LOGIN', 'auth', NULL, NULL, '{"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0"}', '::1', '2026-10-29 14:40:55');
 INSERT INTO `audit_logs` (`id`, `user_id`, `user_name`, `user_role`, `action`, `module`, `entity_type`, `entity_id`, `details`, `ip_address`, `created_at`) VALUES (4, 1, 'Dieudonné Massamba (DG)', 'admin', 'USER_LOGIN', 'auth', NULL, NULL, '{"userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0"}', '::1', '2026-10-29 14:56:10');
 INSERT INTO `audit_logs` (`id`, `user_id`, `user_name`, `user_role`, `action`, `module`, `entity_type`, `entity_id`, `details`, `ip_address`, `created_at`) VALUES (5, NULL, 'Système Nettoyage', 'admin', 'PURGE_TEST_DATA', 'system', NULL, NULL, '{"message":"Vidage des données de test avant livraison client."}', NULL, '2026-10-29 15:12:32');
+INSERT INTO `audit_logs` (`id`, `user_id`, `user_name`, `user_role`, `action`, `module`, `entity_type`, `entity_id`, `details`, `ip_address`, `created_at`) VALUES (6, NULL, 'Système Nettoyage', 'admin', 'PURGE_TEST_DATA', 'system', NULL, NULL, '{"message":"Vidage des données de test avant livraison client."}', NULL, '2026-10-29 16:21:40');
 
 -- Structure de la table `cargo_items`
 DROP TABLE IF EXISTS `cargo_items`;
