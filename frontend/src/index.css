@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* Échelle compacte style dashboard SaaS pro (Stripe / Linear / Vercel) */
+    font-size: 13px;
+    letter-spacing: -0.015em;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-700 font-sans antialiased text-[12px] leading-snug;
+  }
+
+  /* Tableaux denses et épurés */
+  table {
+    @apply text-[11.5px];
+  }
+
+  th {
+    @apply text-[10px] font-semibold tracking-wider text-slate-500 py-2 px-3;
+  }
+
+  td {
+    @apply py-2 px-3;
+  }
+
+  /* Champs et boutons fins et précis */
+  input, select, textarea {
+    @apply text-[12px] py-1.5 px-2.5 rounded-lg border-slate-200;
+  }
+
+  button {
+    @apply text-[12px];
+  }
+
+  /* Titres hiérarchisés et discrets */
+  h1 {
+    @apply text-base font-bold tracking-tight text-navy-950;
+  }
+
+  h2 {
+    @apply text-sm font-bold tracking-tight text-navy-950;
+  }
+
+  h3 {
+    @apply text-xs font-semibold text-navy-950;
+  }
+}
+
+/* Print Styles for Invoices, Receipts & Waybills */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-shadow-none {
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  @page {
+    margin: 12mm;
+    size: A4 portrait;
+  }
+}
+
