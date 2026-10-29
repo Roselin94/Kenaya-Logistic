@@ -14,7 +14,11 @@ const DB_CONFIG = {
   database: process.env.DB_NAME || 'kenaya_logistics',
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
+  ssl: process.env.DB_SSL === 'true' || process.env.DB_HOST?.includes('tidbcloud.com') ? {
+    minVersion: 'TLSv1.2',
+    rejectUnauthorized: true
+  } : undefined
 };
 
 // Fallback JSON-persisted relational simulator for zero-downtime offline execution
